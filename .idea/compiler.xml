@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="authSample" />
         <module name="spring-transaction-sample" />
       </profile>
       <profile name="Annotation profile for demo-from-app-architecture" enabled="true">
@@ -22,6 +23,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authSample" options="-parameters" />
       <module name="demo-from-app-architecture" options="-parameters" />
       <module name="spring-transaction-sample" options="-parameters" />
     </option>

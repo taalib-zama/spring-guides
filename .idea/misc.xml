@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/spring-transaction-sample/pom.xml" />
         <option value="$PROJECT_DIR$/demo-from-app-architecture/pom.xml" />
+        <option value="$PROJECT_DIR$/authSample/pom.xml" />
       </list>
     </option>
   </component>
