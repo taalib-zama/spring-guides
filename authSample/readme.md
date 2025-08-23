@@ -1,4 +1,4 @@
-#Auth Sample for storing Creds in DB 
+## Auth Sample for storing Creds in DB 
 User H2 DB for sample
 We encrypt the password using BCryptPasswordEncoder
 Creds are created using register API.
