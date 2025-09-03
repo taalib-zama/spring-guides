@@ -1,13 +1,13 @@
 package com.springguide.oauth2.authSample.entity;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 
 @Entity
@@ -37,12 +37,12 @@ public class UserAuthEntity implements UserDetails {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
-    @Override
+
     public String getPassword() {
         return password;
     }
 
-    @Override
+
     public String getUsername() {
         return username;
     }
@@ -65,5 +65,18 @@ public class UserAuthEntity implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getRole() {
+        return role.name();
+    }
+
+    public String setRole(Optional<String> role) {
+        this.role = role.map(Role::fromString).orElse(Role.getDefault());
+        return this.role.name();
+    }
+
+    public void setPassword(String encode) {
+        this.password = password;
     }
 }
