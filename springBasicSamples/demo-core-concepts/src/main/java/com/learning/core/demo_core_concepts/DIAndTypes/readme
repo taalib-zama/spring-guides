@@ -1,0 +1,37 @@
+type of Dependency injection
+
+1. Constructor Injection :  Autowiring on contructor.
+
+
+
+2. Setter Injection : autowiring on setter
+3. Field Injection
+4. Interface Injection
+5. Method Injection
+6. Provider Injection
+7. Service Locator Injection
+8. Contextual Injection
+9. Annotation-based Injection
+10. XML-based Injection
+11. Java-based Configuration Injection
+12. Factory Injection
+13. Module-based Injection
+14. Aspect-oriented Injection
+15. Scoped Injection
+16. Lazy Injection
+17. Eager Injection
+18. Multibinding Injection
+19. Named Injection
+20. Qualifier-based Injection
+21. Custom Annotation Injection
+22. Configuration-based Injection
+23. Environment-based Injection
+24. Profile-based Injection
+25. Conditional Injection
+26. Dynamic Injection
+27. Static Injection
+28. Cross-cutting Injection
+29. Event-based Injection
+30. Interceptor-based Injection
+31. Proxy-based Injection
+

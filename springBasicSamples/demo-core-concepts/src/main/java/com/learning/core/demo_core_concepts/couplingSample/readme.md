@@ -1,0 +1,1 @@
+check the example of toght coupling for samples of coupling and so

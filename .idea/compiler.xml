@@ -7,24 +7,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="authSample" />
         <module name="spring-transaction-sample" />
-        <module name="demo-for-basic-auth" />
       </profile>
-      <profile name="Annotation profile for demo-from-app-architecture" enabled="true">
+      <profile name="Annotation profile for demo-core-concepts" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="demo-core-concepts" />
         <module name="demo-from-app-architecture" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="authSample" target="21" />
+      <module name="demo-for-basic-auth" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="authSample" options="-parameters" />
+      <module name="demo-core-concepts" options="-parameters" />
       <module name="demo-for-basic-auth" options="-parameters" />
       <module name="demo-from-app-architecture" options="-parameters" />
       <module name="spring-transaction-sample" options="-parameters" />
