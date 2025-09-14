@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/authSample/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/demo-for-basic-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authSamples/authSample/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authSamples/demo-for-basic-auth/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-from-app-architecture/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-transaction-sample/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springBasicSamples/demo-core-concepts/src/main/java" charset="UTF-8" />
   </component>
 </project>
