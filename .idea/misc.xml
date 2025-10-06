@@ -10,10 +10,20 @@
         <option value="$PROJECT_DIR$/demo-for-basic-auth/pom.xml" />
         <option value="$PROJECT_DIR$/CourseSept2025/demo-core-concepts/pom.xml" />
         <option value="$PROJECT_DIR$/springBasicSamples/demo-core-concepts/pom.xml" />
+        <option value="$PROJECT_DIR$/springBasicSamples/springMvcDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springBasicSamples/SpringMvcProject/SpringMvcProject/pom.xml" />
+        <option value="$PROJECT_DIR$/todo-manager/pom.xml" />
+        <option value="$PROJECT_DIR$/springBasicSamples/spring-data-jpa-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/authSamples/demo-for-basic-auth/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springBasicSamples/springMvcDemo/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="graalvm-jdk-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

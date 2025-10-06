@@ -2,10 +2,21 @@ type of Dependency injection
 
 1. Constructor Injection :  Autowiring on contructor.
 
+use contructor inject for mandatory dependencies
 
 
 2. Setter Injection : autowiring on setter
-3. Field Injection
+
+for optional dependencies use setter injection
+
+
+3. Field Injection : using @Autowired on field
+Ex :
+    @AUTOWIRED
+    private UserService userService;
+
+
+
 4. Interface Injection
 5. Method Injection
 6. Provider Injection
