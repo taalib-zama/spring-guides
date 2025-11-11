@@ -1,12 +1,15 @@
 package com.learning.core.JPADemo.spring_data_jpa_demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 
 @Entity
-@Data
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder (builderClassName = "Builder", setterPrefix = "with")
 @Table(name = "USER", schema = "sample")
 public class User {
 

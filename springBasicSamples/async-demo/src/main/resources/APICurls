@@ -1,0 +1,6 @@
+curl --location 'http://localhost:8080/users' \
+--form 'file=@"/Users/taalibzama/Downloads/MOCK_DATA.csv"' \
+--form 'file=@"/Users/taalibzama/Downloads/MOCK_DATA (1).csv"'
+
+
+
