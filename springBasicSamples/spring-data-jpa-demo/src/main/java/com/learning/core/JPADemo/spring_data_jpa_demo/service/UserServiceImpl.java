@@ -1,6 +1,7 @@
 package com.learning.core.JPADemo.spring_data_jpa_demo.service;
 
 import com.learning.core.JPADemo.spring_data_jpa_demo.entity.User;
+import com.learning.core.JPADemo.spring_data_jpa_demo.entity.User.Builder;
 import com.learning.core.JPADemo.spring_data_jpa_demo.exception.ResourceNotFoundException;
 import com.learning.core.JPADemo.spring_data_jpa_demo.repository.UserRepository;
 import com.learning.core.JPADemo.spring_data_jpa_demo.service.interfaces.UserService;
@@ -37,12 +38,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Integer id) {
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id, HttpStatus.NOT_FOUND));
+        userRepository.delete(existingUser);
 
     }
 
     @Override
-    public User updateUser(User user, Integer id) {
-        return null;
+    public User updateUser(User user) {
+        User existingUser = userRepository.findById(user.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + user.getId(), HttpStatus.NOT_FOUND));
+
+        User updatedUser = User.builder()
+                .withId(existingUser.getId())
+                .withName(user.getName() != null ? user.getName() : existingUser.getName())
+                .withAge(user.getAge() != null ? user.getAge() : existingUser.getAge())
+                .withCity(user.getCity() != null ? user.getCity() : existingUser.getCity())
+                .build();
+            return userRepository.save(updatedUser);
     }
 
     @Override

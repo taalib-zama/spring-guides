@@ -40,6 +40,11 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+        @PostMapping("/update")
+        public ResponseEntity<User> updateUser(@RequestBody User user) {
+        log.info("Request to update user with id: {}", user.getId());
+        return ResponseEntity.ok(userService.updateUser(user));
 
+        }
 
 }
