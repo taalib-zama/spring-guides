@@ -53,8 +53,6 @@ public class UserService implements com.sample.electronicStore.electronicStore.s
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + userId));
         userRepository.delete(user);
-
-
     }
 
     @Override

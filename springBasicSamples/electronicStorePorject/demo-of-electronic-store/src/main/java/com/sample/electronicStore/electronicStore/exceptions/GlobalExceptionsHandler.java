@@ -59,8 +59,26 @@ public class GlobalExceptionsHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
+
+
+    @ExceptionHandler(BadApiRequestException.class)
+    public ResponseEntity<ErrorResponse> handleBadApiRequest(BadApiRequestException ex) {
+        log.error("Api request with incorrect parametres ", ex);
+        ErrorCodeMapping errorCodeMapping = errorCodeMappingService.getOrCreate(ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(
+                errorCodeMapping.getId().toString(),
+                errorCodeMapping.getMessage(),
+                HttpStatus.BAD_REQUEST
+        );
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    }
+
+
+
     // Override the method instead of using @ExceptionHandler
     // adding exception handler for validation errors
+    //can write a diff mehtod with a diff name and no need to override
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,

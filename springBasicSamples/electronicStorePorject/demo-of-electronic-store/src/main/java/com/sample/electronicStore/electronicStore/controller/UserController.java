@@ -1,15 +1,21 @@
 package com.sample.electronicStore.electronicStore.controller;
 
+import com.sample.electronicStore.electronicStore.dtos.ImageResponse;
 import com.sample.electronicStore.electronicStore.dtos.UserDTO;
+import com.sample.electronicStore.electronicStore.services.FileService;
 import com.sample.electronicStore.electronicStore.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -19,6 +25,13 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
+    @Autowired
+    private FileService fileService;
+
+
+    @Value("${user.profile.image.path}")
+    private String imageUploadPath; //added in config file.
 
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
@@ -68,4 +81,43 @@ public class UserController {
         UserDTO user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
+
+
+    //upload user image
+    @PostMapping("/image/{userId}")
+    public ResponseEntity<ImageResponse> uploadUserImage(
+            @RequestParam("userImage") MultipartFile imageFile,
+            @PathVariable String userId) {
+
+        try {
+            String filename = fileService.uploadImage(imageFile, imageUploadPath);
+
+            // Update user with the returned filename (not original filename)
+            UserDTO userDTO = userService.getUserById(userId);
+            userDTO.setImagePath(filename);  // Use returned filename, not original
+            userService.updateUser(userDTO, userId);
+
+            ImageResponse response = ImageResponse.builder()
+                    .imageName(filename)  // Use returned filename
+                    .success(true)
+                    .status(HttpStatus.CREATED)
+                    .message("Image uploaded successfully")
+                    .build();
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
+        } catch (IOException e) {
+            ImageResponse response = ImageResponse.builder()
+                    .imageName(null)
+                    .success(false)
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .message("Image upload failed: " + e.getMessage())
+                    .build();
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    //server image
+
 }
