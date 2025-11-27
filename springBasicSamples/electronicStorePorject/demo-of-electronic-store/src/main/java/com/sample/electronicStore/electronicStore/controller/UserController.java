@@ -4,6 +4,7 @@ import com.sample.electronicStore.electronicStore.dtos.ImageResponse;
 import com.sample.electronicStore.electronicStore.dtos.UserDTO;
 import com.sample.electronicStore.electronicStore.services.FileService;
 import com.sample.electronicStore.electronicStore.services.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -119,5 +121,16 @@ public class UserController {
     }
 
     //server image
+    @GetMapping("/image/{userId}")
+    public void serveUserImage(@PathVariable String userId, HttpServletResponse response) {
+        UserDTO userDTO = userService.getUserById(userId);
+        String imagePath = userDTO.getImagePath();
+        try {
+            response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+            fileService.getResource(imageUploadPath, imagePath).transferTo(response.getOutputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

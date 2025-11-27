@@ -1,0 +1,14 @@
+{
+  "workspace": {
+    "id": "2361d271-e9e3-4feb-80e8-d53dbb90e033"
+  },
+  "entities": {
+    "collections": [
+      "../postman/collections/electronicStrore.postman_collection.json"
+    ],
+    "environments": [],
+    "specs": [],
+    "flows": [],
+    "globals": []
+  }
+}
