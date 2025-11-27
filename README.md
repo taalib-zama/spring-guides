@@ -8,4 +8,8 @@ NOTE : Also check for tests/mock of same.
 
 
 
-##### JPA Implementation with Error code mapping implementation : https://github.com/taalib-zama/spring-guides/blob/master/springBasicSamples/spring-data-jpa-demo/module-description.md
+##### JPA Implementation with Error code mapping implementation :
+https://github.com/taalib-zama/spring-guides/blob/master/springBasicSamples/spring-data-jpa-demo/module-description.md
+
+##### Spring project implementation (Electronic store app): 
+https://github.com/taalib-zama/spring-guides/tree/master/springBasicSamples/electronicStorePorject/demo-of-electronic-store
