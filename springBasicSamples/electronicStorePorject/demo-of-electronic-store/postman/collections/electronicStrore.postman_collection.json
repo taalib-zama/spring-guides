@@ -1,0 +1,300 @@
+{
+  "info": {
+    "_postman_id": "8e538470-6b0e-44bd-abb5-7790737c8195",
+    "name": "electronicStrore",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "createUser",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "API Gateway",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "uploadImage",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "getImage",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "deleteuserWithImage",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "getAll",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "fetchWithpagination",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users?page=0&size=5&sort=name,asc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "name,asc"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl -X GET \"http://localhost:8080/api/v1/users?page=0&size=5&sort=name,asc\""
+          }
+        },
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"pass123\",\n    \"gender\": \"MALE\",\n    \"about\": \"Software Developer\",\n    \"imagePath\": \"/images/john.jpg\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            },
+            "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/users \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"pass123\",\n    \"gender\": \"MALE\",\n    \"about\": \"Software Developer\",\n    \"imagePath\": \"/images/john.jpg\"\n  }'\n"
+          }
+        },
+        {
+          "name": "getbyID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "getuserbyID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users/123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "123"
+              ]
+            },
+            "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/users/123\n"
+          }
+        }
+      ]
+    },
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\" : \"Mobile Phones\",\n    \"description\": \"this cateogor is for mobile phones\",\n    \"coverImage\": \"abc.png\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/categories/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "create"
+              ]
+            }
+          }
+        },
+        {
+          "name": "getAll",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\" : \"Mobile Phones\",\n    \"description\": \"this cateogor is for mobile phones\",\n    \"coverImage\": \"abc.png\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/categories/getAll",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "getAll"
+              ]
+            }
+          }
+        },
+        {
+          "name": "getSingle",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/categories/getSingle/c3def634-0446-47ee-a52d-1d9452e28f2f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "getSingle",
+                "c3def634-0446-47ee-a52d-1d9452e28f2f"
+              ]
+            }
+          }
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Best Sellers of Today\",\n    \"description\": \"this cateogory is for bestselling products on today\",\n    \"coverImage\": \"xyz1.png\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/categories/update/c3def634-0446-47ee-a52d-1d9452e28f2f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "update",
+                "c3def634-0446-47ee-a52d-1d9452e28f2f"
+              ]
+            }
+          }
+        },
+        {
+          "name": "search",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\" : \"Mobile Phones\",\n    \"description\": \"this cateogor is for mobile phones\",\n    \"coverImage\": \"abc.png\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/categories/search/trending",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "search",
+                "trending"
+              ]
+            }
+          }
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

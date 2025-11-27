@@ -3,6 +3,7 @@ package com.sample.electronicStore.electronicStore.services.impl;
 import com.sample.electronicStore.electronicStore.exceptions.BadApiRequestException;
 import com.sample.electronicStore.electronicStore.services.FileService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.ILoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,6 +39,7 @@ public class FileServiceImpl implements FileService {
 
             //create full path
             String fullPath = path + File.separator + fileWithExtension;
+            log.info("Full path of saved image : {}",fullPath);
 
             // Copy file
             Files.copy(file.getInputStream(),
