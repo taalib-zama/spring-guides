@@ -29,9 +29,34 @@
         {
           "name": "uploadImage",
           "request": {
-            "method": "GET",
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userImage",
+                  "type": "file",
+                  "uuid": "d6105756-71b0-4d28-9672-946ff07060bc",
+                  "src": [
+                    "/Users/taalibzama/Downloads/tron_legacy-wallpaper-2560x1440.jpg"
+                  ]
+                }
+              ]
+            },
             "url": {
-              "raw": ""
+              "raw": "http://localhost:8080/api/v1/users/image/2108edfb-2036-411f-b6c3-ee6315bf2873",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "image",
+                "2108edfb-2036-411f-b6c3-ee6315bf2873"
+              ]
             }
           }
         },
@@ -40,7 +65,19 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": ""
+              "raw": "http://localhost:8080/api/v1/users/image/2108edfb-2036-411f-b6c3-ee6315bf2873",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "image",
+                "2108edfb-2036-411f-b6c3-ee6315bf2873"
+              ]
             }
           }
         },
@@ -288,13 +325,71 @@
         {
           "name": "delete",
           "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/categories/delete/0e175d7e-9940-4e58-a829-855f9e0b5ad8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "delete",
+                "0e175d7e-9940-4e58-a829-855f9e0b5ad8"
+              ]
+            }
+          }
+        },
+        {
+          "name": "getImageofcategory",
+          "request": {
             "method": "GET",
             "url": {
               "raw": ""
             }
           }
+        },
+        {
+          "name": "uploadImage",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "categoryImage",
+                  "type": "file",
+                  "uuid": "d6105756-71b0-4d28-9672-946ff07060bc",
+                  "src": [
+                    "/Users/taalibzama/Downloads/tron-wallpaper-2560x1440.jpg"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/categories/image/0e175d7e-9940-4e58-a829-855f9e0b5ad8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "image",
+                "0e175d7e-9940-4e58-a829-855f9e0b5ad8"
+              ]
+            }
+          }
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "",
+      "type": "default"
     }
   ]
 }
