@@ -1,36 +1,28 @@
-package com.sample.electronicStore.electronicStore.entities;
+package com.sample.electronicStore.electronicStore.dtos;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity
-@Table(name = "products")
-@Data
 @AllArgsConstructor
+@Data
 @NoArgsConstructor
-public class Product {
-    @Id
+@Builder
+public class ProductDTO {
+
     private String productId;
     private String title;
-
-    @Column(length = 1000)
     private String description;
-
-
     private Double price;
     private Double discountedPrice;
-
     private Integer quantity;
     private Boolean isLive;
     private Date addedDate;
     private Boolean isInstock;
-
     private String productImage;
+
 }

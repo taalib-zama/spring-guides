@@ -197,6 +197,42 @@
             },
             "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/users/123\n"
           }
+        },
+        {
+          "name": "findAllWithSortingAndPagination",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users?page=5&size=5&sort=name,asc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "5",
+                  "uuid": "1d547758-1460-481c-b6f4-e13ab3784086"
+                },
+                {
+                  "key": "size",
+                  "value": "5",
+                  "uuid": "25c4898c-5fc3-4f93-9309-ab036a9ffa05"
+                },
+                {
+                  "key": "sort",
+                  "value": "name,asc",
+                  "uuid": "1c7686c0-502d-42c4-a6cd-214428058510"
+                }
+              ]
+            }
+          }
         }
       ]
     },
@@ -380,6 +416,197 @@
                 "0e175d7e-9940-4e58-a829-855f9e0b5ad8"
               ]
             }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "createProduct",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Phone XS\",\n    \"description\": \"Example description for phone\",\n    \"price\": 499.99,\n    \"productImage\": \"image.jpg\",\n    \"addedDate\": \"2025-01-01\",\n    \"discountedPrice\": 249.99,\n    \"isLive\": true,\n    \"isInstock\": true\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products"
+              ]
+            },
+            "description": "Generated from cURL: curl -i -X POST http://localhost:8080/products \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json\" \\\n  -d '{\n    \"title\": \"Sample Product\",\n    \"description\": \"Example description\",\n    \"price\": 199.99,\n    \"productImage\": \"image.jpg\",\n    \"addedDate\": \"2025-01-01\",\n    \"discountedPrice\": 149.99,\n    \"isLive\": true,\n    \"isInstock\": true\n  }'"
+          }
+        },
+        {
+          "name": "updatProduct",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Updated Title\",\n    \"price\": 179.99,\n    \"isLive\": false\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/products/40925154-131b-4de7-bad8-aa629c0d1a5d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products",
+                "40925154-131b-4de7-bad8-aa629c0d1a5d"
+              ]
+            },
+            "description": "Generated from cURL: curl -i -X PUT http://localhost:8080/products/{productId} \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json\" \\\n  -d '{\n    \"title\": \"Updated Title\",\n    \"price\": 179.99,\n    \"isLive\": false\n  }'"
+          }
+        },
+        {
+          "name": "deleteProduct",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/products/e55c07ee-4c40-464b-b961-f9063c2a6c94",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products",
+                "e55c07ee-4c40-464b-b961-f9063c2a6c94"
+              ]
+            },
+            "description": "Generated from cURL: curl -i -X DELETE http://localhost:8080/products/{productId} \\\n  -H \"Accept: application/json\"\n"
+          }
+        },
+        {
+          "name": "liveProductWithPaginationAndSorting",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/products/live?page=0&size=10&sort=addedDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products",
+                "live"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "addedDate,desc"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl -i -X GET \"http://localhost:8080/products/live?page=0&size=10&sort=addedDate,desc\" \\\n  -H \"Accept: application/json\""
+          }
+        },
+        {
+          "name": "searchByTitle",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/products/search?subTitle=phone&page=0&size=10&sort=addedDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "subTitle",
+                  "value": "phone",
+                  "uuid": "5b5c4432-00cf-42ad-bb85-8b3f687b82cc"
+                },
+                {
+                  "key": "page",
+                  "value": "0",
+                  "uuid": "44501d4b-60ca-4af5-965d-5c0edf4b97d5"
+                },
+                {
+                  "key": "size",
+                  "value": "10",
+                  "uuid": "c8726d14-a08b-4bac-a47e-da107c26d50f"
+                },
+                {
+                  "key": "sort",
+                  "value": "addedDate,desc",
+                  "uuid": "778fa0b7-d0aa-4526-abd0-53f3ea599820"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl -i -X GET \"http://localhost:8080/products/search?subTitle=phone&page=0&size=10&sort=addedDate,desc\" \\\n  -H \"Accept: application/json\"\n"
           }
         }
       ]
