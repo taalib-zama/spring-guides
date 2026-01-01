@@ -58,7 +58,7 @@ public class UserController {
 
 
     //NOTE : Spring automatically converts query parameters to Pageable
-    // /api/v1/users?page=0&size=10
+    // sample -> /api/v1/users?page=0&size=10
 
     @GetMapping
     public ResponseEntity<Page<UserDTO>> getAllUsers(Pageable pageable) {

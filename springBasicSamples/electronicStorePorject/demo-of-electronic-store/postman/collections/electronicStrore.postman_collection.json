@@ -424,43 +424,6 @@
       "name": "Product",
       "item": [
         {
-          "name": "createProduct",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Phone XS\",\n    \"description\": \"Example description for phone\",\n    \"price\": 499.99,\n    \"productImage\": \"image.jpg\",\n    \"addedDate\": \"2025-01-01\",\n    \"discountedPrice\": 249.99,\n    \"isLive\": true,\n    \"isInstock\": true\n  }",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/products",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "products"
-              ]
-            },
-            "description": "Generated from cURL: curl -i -X POST http://localhost:8080/products \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json\" \\\n  -d '{\n    \"title\": \"Sample Product\",\n    \"description\": \"Example description\",\n    \"price\": 199.99,\n    \"productImage\": \"image.jpg\",\n    \"addedDate\": \"2025-01-01\",\n    \"discountedPrice\": 149.99,\n    \"isLive\": true,\n    \"isInstock\": true\n  }'"
-          }
-        },
-        {
           "name": "updatProduct",
           "request": {
             "method": "PUT",
@@ -607,6 +570,291 @@
               ]
             },
             "description": "Generated from cURL: curl -i -X GET \"http://localhost:8080/products/search?subTitle=phone&page=0&size=10&sort=addedDate,desc\" \\\n  -H \"Accept: application/json\"\n"
+          }
+        },
+        {
+          "name": "uploadProductImage",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "type": "file",
+                  "key": "productImage",
+                  "src": [
+                    "/Users/taalibzama/Downloads/mobile-phone-icon-vector-2382356.jpg"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/products/image/40925154-131b-4de7-bad8-aa629c0d1a5d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products",
+                "image",
+                "40925154-131b-4de7-bad8-aa629c0d1a5d"
+              ]
+            },
+            "description": "Generated from cURL: curl -v -X POST \"http://localhost:8080/products/image/{productId}\" \\\n  -H \"Accept: application/json\" \\\n  -F \"productImage=@/path/to/local/image.jpg\""
+          }
+        },
+        {
+          "name": "serve Prodct image",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/jpeg"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/products/image/40925154-131b-4de7-bad8-aa629c0d1a5d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products",
+                "image",
+                "40925154-131b-4de7-bad8-aa629c0d1a5d"
+              ]
+            },
+            "description": "Generated from cURL: curl -v \"http://localhost:8080/products/image/{productId}\" \\\n  -H \"Accept: image/jpeg\" \\\n  -o out.jpg"
+          }
+        },
+        {
+          "name": "createProductWithCategory",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Wireless Mouse\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"quantity\": 100,\n    \"addedDate\": \"2025-12-24T12:00:00Z\",\n    \"coverImage\": \"mouse.jpg\",\n    \"is_instock\" : true,\n    \"live\": true\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/categories/05dce501-7ab1-4e55-b615-36e47791f065/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "05dce501-7ab1-4e55-b615-36e47791f065",
+                "products"
+              ]
+            },
+            "description": "Generated from cURL: curl -X POST \"http://localhost:8080/categories/cat123/products\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"id\": \"prod123\",\n    \"title\": \"Wireless Mouse\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"quantity\": 100,\n    \"addedDate\": \"2025-12-24T12:00:00Z\",\n    \"coverImage\": \"mouse.jpg\",\n    \"live\": true\n  }'\n"
+          }
+        },
+        {
+          "name": "createProduct",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Wireless Mouse 2\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"discountedPrice\": 24.99,\n    \"quantity\": 100,\n    \"isLive\": true,\n    \"addedDate\": \"2025-12-28T12:34:56\",\n    \"isInstock\": true,\n    \"productImage\": null,\n    \"category\": null\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "products"
+              ]
+            },
+            "description": "Generated from cURL: curl -X POST http://localhost:8080/products \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json\" \\\n  -d '{\n    \"productId\": \"prod-123\",\n    \"title\": \"Wireless Mouse\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"discountedPrice\": 24.99,\n    \"quantity\": 100,\n    \"isLive\": true,\n    \"addedDate\": \"2025-12-28T12:34:56\",\n    \"isInstock\": true,\n    \"productImage\": null,\n    \"category\": null\n  }'"
+          }
+        },
+        {
+          "name": "getAllProductOFOneCategory",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/categories/05dce501-7ab1-4e55-b615-36e47791f065/products?page=0&size=10&sort=price,desc&sort=title,asc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "05dce501-7ab1-4e55-b615-36e47791f065",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0",
+                  "uuid": "d88c9710-eff3-4719-a96d-e6f26045fbf5"
+                },
+                {
+                  "key": "size",
+                  "value": "10",
+                  "uuid": "a1c652ab-3370-4cd6-a6a7-dd645dc072eb"
+                },
+                {
+                  "key": "sort",
+                  "value": "price,desc",
+                  "uuid": "fc38911a-8e21-410e-afa1-ea600eedff4a"
+                },
+                {
+                  "key": "sort",
+                  "value": "title,asc",
+                  "uuid": "648e13b3-28ac-494f-86c9-0dec40491f76"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl -X GET \"http://localhost:8080/categories/CATEGORY_ID/products?page=0&size=10&sort=price,desc&sort=title,asc\"\n"
+          }
+        }
+      ]
+    },
+    {
+      "name": "cart",
+      "item": [
+        {
+          "name": "addItemsToCart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"productId\": \"aab09992-14a1-4491-a8c8-4818ba2e46c8\",\n    \"quantity\": 1\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873/items",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "carts",
+                "2108edfb-2036-411f-b6c3-ee6315bf2873",
+                "items"
+              ]
+            },
+            "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/carts/user123/items \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"productId\": \"prod456\",\n    \"quantity\": 2\n  }'\n"
+          }
+        },
+        {
+          "name": "getUserCart",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "carts",
+                "2108edfb-2036-411f-b6c3-ee6315bf2873"
+              ]
+            },
+            "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/carts/user123\n"
+          }
+        },
+        {
+          "name": "removeItemFromcart",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873/items/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "carts",
+                "2108edfb-2036-411f-b6c3-ee6315bf2873",
+                "items",
+                ""
+              ]
+            },
+            "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/carts/user123/items/1\n"
+          }
+        },
+        {
+          "name": "clearCart",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "carts",
+                "2108edfb-2036-411f-b6c3-ee6315bf2873"
+              ]
+            },
+            "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/carts/user123\n"
           }
         }
       ]
