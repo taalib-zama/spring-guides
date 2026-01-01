@@ -1,11 +1,14 @@
 package com.sample.electronicStore.electronicStore.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sample.electronicStore.electronicStore.entities.Category;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -21,8 +24,11 @@ public class ProductDTO {
     private Double discountedPrice;
     private Integer quantity;
     private Boolean isLive;
-    private Date addedDate;
+    private LocalDateTime addedDate;
     private Boolean isInstock;
     private String productImage;
+
+    @JsonIgnore
+    private CategoryDTO categoryDTO;
 
 }

@@ -5,16 +5,23 @@ import com.sample.electronicStore.electronicStore.dtos.ProductDTO;
 import com.sample.electronicStore.electronicStore.entities.Category;
 import com.sample.electronicStore.electronicStore.entities.Product;
 import com.sample.electronicStore.electronicStore.entities.User;
+import com.sample.electronicStore.electronicStore.exceptions.ResourceNotFoundException;
+import com.sample.electronicStore.electronicStore.mapper.ProductMapper;
+import com.sample.electronicStore.electronicStore.repo.CategoryRepository;
 import com.sample.electronicStore.electronicStore.repo.ProductRepository;
 import com.sample.electronicStore.electronicStore.services.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
+import java.time.LocalDateTime;
 import java.util.Optional;
+
+import static java.time.LocalDateTime.now;
 
 
 @Service
@@ -26,6 +33,12 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+@Autowired
+private ProductMapper productMapper;
+
 
     @Override
     public ProductDTO create(ProductDTO productDTO) {
@@ -33,6 +46,7 @@ public class ProductServiceImpl implements ProductService {
         //create the random id.
         String productId = java.util.UUID.randomUUID().toString();
         productDTO.setProductId(productId);
+        productDTO.setAddedDate(now());
 
         Product product = modelMapper.map(productDTO, Product.class);
         Product savedProduct = productRepository.save(product);
@@ -63,7 +77,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO getSingle(String productId) {
-        return null;
+        Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+        return modelMapper.map(product, ProductDTO.class);
     }
 
     @Override
@@ -86,4 +101,55 @@ public class ProductServiceImpl implements ProductService {
         Page<Product> products = productRepository.findByTitleContaining(pageable, subTitle);
         return products.map(product -> modelMapper.map(product, ProductDTO.class));
     }
+
+    //create product inside category (with category)
+    @Override
+    public ProductDTO createWithCategory(ProductDTO productDTO, String categoryId) {
+        //fetch the category by id
+        Category category = categoryRepository.findById(categoryId).orElse(null);
+        if (category== null) {
+            throw new RuntimeException("Category not found");
+        }
+
+        String productId = java.util.UUID.randomUUID().toString();
+        productDTO.setProductId(productId);
+        productDTO.setAddedDate(now());
+
+        Product product = modelMapper.map(productDTO, Product.class);
+        //update the category to product entity
+        product.setCategory(category);
+        Product savedProduct = productRepository.save(product);
+        return modelMapper.map(savedProduct, ProductDTO.class);
+
+    }
+
+    @Override
+    public ProductDTO updateCategory(String categoryId, String productId) {
+        //fetch the product by id
+        Product product = productRepository.findById(productId).orElse(null);
+        if (product == null) {
+            throw new RuntimeException("Product not found");
+        }
+
+        //fetch the category by id
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new RuntimeException("Category not found"));
+
+        //set the new category to product
+        product.setCategory(category);
+        Product updatedProduct = productRepository.save(product);
+        return modelMapper.map(updatedProduct, ProductDTO.class);
+    }
+
+    @Override
+    public Page<ProductDTO> getAllWithCategory(String categoryId, Pageable pageable) {
+        /*if (!categoryRepository.existsById(categoryId)) {
+            throw new ResourceNotFoundException("Category not found with ID: " + categoryId, HttpStatus.NOT_FOUND);
+        }*/
+
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found with ID: " + categoryId, HttpStatus.NOT_FOUND));
+        Page<Product> products = productRepository.findByCategory(pageable, category);
+        return products.map(productMapper::toDTO);
+    }
+
+
 }

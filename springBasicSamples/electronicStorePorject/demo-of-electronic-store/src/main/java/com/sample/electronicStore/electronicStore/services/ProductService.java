@@ -25,4 +25,12 @@ public interface ProductService {
 
     //searchProducts
     Page<ProductDTO> searchProducts(String subTitle, Pageable pageable);
+
+
+    ProductDTO createWithCategory(ProductDTO productDTO, String categoryId);
+
+    ProductDTO updateCategory(String categorId, String productId);
+
+
+    Page<ProductDTO> getAllWithCategory(String categoryId, Pageable pageable);
 }

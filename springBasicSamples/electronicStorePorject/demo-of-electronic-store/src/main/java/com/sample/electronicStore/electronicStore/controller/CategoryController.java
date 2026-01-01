@@ -2,13 +2,17 @@ package com.sample.electronicStore.electronicStore.controller;
 
 import com.sample.electronicStore.electronicStore.dtos.CategoryDTO;
 import com.sample.electronicStore.electronicStore.dtos.ImageResponse;
+import com.sample.electronicStore.electronicStore.dtos.ProductDTO;
 import com.sample.electronicStore.electronicStore.dtos.UserDTO;
 import com.sample.electronicStore.electronicStore.repo.CategoryRepository;
 import com.sample.electronicStore.electronicStore.services.CategoryService;
 import com.sample.electronicStore.electronicStore.services.FileService;
+import com.sample.electronicStore.electronicStore.services.ProductService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
@@ -32,6 +36,9 @@ public class CategoryController {
 
     @Autowired
     private FileService fileService;
+
+    @Autowired
+    private ProductService productService;
 
 
     @Value("${category.profile.image.path}")
@@ -183,4 +190,26 @@ public class CategoryController {
         }
     }
 
+    //Add product inside category page.
+    @PostMapping("/{categoryId}/products")
+    public ResponseEntity<ProductDTO> createProductInCategory(@RequestBody ProductDTO productDTO, @PathVariable("categoryId") String categoryId){
+        ProductDTO createdProduct = productService.createWithCategory(productDTO, categoryId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
+    }
+
+
+    //update category of product
+    @PutMapping("/{categoryId}/products/{productId}")
+    public ResponseEntity<ProductDTO> updateProductCategory(@PathVariable("categoryId") String categoryId, @PathVariable("productId") String productId){
+        ProductDTO updatedProduct = productService.updateCategory(categoryId, productId);
+        return ResponseEntity.ok(updatedProduct);
+    }
+
+    //get all products of category.
+    @GetMapping("/{categoryId}/products")
+    public ResponseEntity<Page<ProductDTO>> getAllProductsOfCategory(@PathVariable("categoryId") String categoryId, Pageable pageable) {
+
+        Page<ProductDTO> products = productService.getAllWithCategory(categoryId,pageable);
+        return ResponseEntity.ok(products);
+            }
 }
