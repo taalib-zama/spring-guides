@@ -10,26 +10,53 @@
       "item": [
         {
           "name": "createUser",
+          "id": "9d13a0b9-6fe3-4927-a5be-822f075c3468",
           "request": {
-            "method": "GET",
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Shami Don\",\n    \"email\": \"shami@example.com\",\n    \"password\": \"password12223\",\n    \"gender\": \"MALE\",\n    \"about\": \"Software Eng\",\n    \"imagePath\" : \"abc.jpg\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": ""
+              "raw": "http://localhost:8080/api/v1/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "API Gateway",
+          "id": "ca4ebcce-c103-4655-9f67-d27274021625",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": ""
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "uploadImage",
+          "id": "df5d956b-b7f6-4fba-a884-24a294383c7e",
           "request": {
             "method": "POST",
+            "header": [],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -58,12 +85,15 @@
                 "2108edfb-2036-411f-b6c3-ee6315bf2873"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "getImage",
+          "id": "db679296-2e09-45fa-9a34-50d7720348c9",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/users/image/2108edfb-2036-411f-b6c3-ee6315bf2873",
               "protocol": "http",
@@ -79,30 +109,39 @@
                 "2108edfb-2036-411f-b6c3-ee6315bf2873"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "deleteuserWithImage",
+          "id": "ab278777-4c22-4a6f-8545-d8f561f2d3bd",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": ""
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "getAll",
+          "id": "6f50043c-2c92-480f-8c33-e17d64f7888b",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": ""
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "fetchWithpagination",
+          "id": "8e258c35-ad2d-4a23-a4a0-dc5410f02259",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/users?page=0&size=5&sort=name,asc",
               "protocol": "http",
@@ -131,10 +170,12 @@
               ]
             },
             "description": "Generated from cURL: curl -X GET \"http://localhost:8080/api/v1/users?page=0&size=5&sort=name,asc\""
-          }
+          },
+          "response": []
         },
         {
           "name": "create user",
+          "id": "9c964808-e343-42b5-b128-253c79f3adc8",
           "request": {
             "method": "POST",
             "header": [
@@ -166,21 +207,27 @@
               ]
             },
             "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/users \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"pass123\",\n    \"gender\": \"MALE\",\n    \"about\": \"Software Developer\",\n    \"imagePath\": \"/images/john.jpg\"\n  }'\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "getbyID",
+          "id": "819767e5-5992-4ff5-8029-28231a7839b7",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": ""
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "getuserbyID",
+          "id": "93a1e9d7-00eb-4b84-a086-156220984195",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/users/123",
               "protocol": "http",
@@ -196,12 +243,15 @@
               ]
             },
             "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/users/123\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "findAllWithSortingAndPagination",
+          "id": "bc87a2b6-68a6-43dc-828a-e4c5a75745ea",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/users?page=5&size=5&sort=name,asc",
               "protocol": "http",
@@ -232,17 +282,21 @@
                 }
               ]
             }
-          }
+          },
+          "response": []
         }
-      ]
+      ],
+      "id": "47bde6f0-b801-4496-99da-12c49f060547"
     },
     {
       "name": "categories",
       "item": [
         {
           "name": "create",
+          "id": "45089868-28a1-4ec8-af64-57c45f0d7282",
           "request": {
             "method": "POST",
+            "header": [],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"title\" : \"Mobile Phones\",\n    \"description\": \"this cateogor is for mobile phones\",\n    \"coverImage\": \"abc.png\"\n}",
@@ -264,12 +318,15 @@
                 "create"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "getAll",
+          "id": "e825fa41-58f9-4f7b-bf97-99488429cc60",
           "request": {
             "method": "GET",
+            "header": [],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"title\" : \"Mobile Phones\",\n    \"description\": \"this cateogor is for mobile phones\",\n    \"coverImage\": \"abc.png\"\n}"
@@ -286,12 +343,15 @@
                 "getAll"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "getSingle",
+          "id": "20eba638-46e8-4eeb-9df4-919db1613e59",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/categories/getSingle/c3def634-0446-47ee-a52d-1d9452e28f2f",
               "protocol": "http",
@@ -305,12 +365,15 @@
                 "c3def634-0446-47ee-a52d-1d9452e28f2f"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "update",
+          "id": "36d8a6dd-4e90-43a9-9155-2523ae8f84d9",
           "request": {
             "method": "PUT",
+            "header": [],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"title\": \"Best Sellers of Today\",\n    \"description\": \"this cateogory is for bestselling products on today\",\n    \"coverImage\": \"xyz1.png\"\n}",
@@ -333,12 +396,15 @@
                 "c3def634-0446-47ee-a52d-1d9452e28f2f"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "search",
+          "id": "cba0390f-c3e8-4e20-ab12-7a033ed915f8",
           "request": {
             "method": "GET",
+            "header": [],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"title\" : \"Mobile Phones\",\n    \"description\": \"this cateogor is for mobile phones\",\n    \"coverImage\": \"abc.png\"\n}"
@@ -356,12 +422,15 @@
                 "trending"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "delete",
+          "id": "89588f62-29c9-4075-98b2-2419ad7196ff",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/categories/delete/0e175d7e-9940-4e58-a829-855f9e0b5ad8",
               "protocol": "http",
@@ -375,21 +444,27 @@
                 "0e175d7e-9940-4e58-a829-855f9e0b5ad8"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "getImageofcategory",
+          "id": "e07bbc1c-535f-4d00-99ce-ff8cfcb08911",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": ""
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "uploadImage",
+          "id": "0d7907c2-76cb-4ddd-af8d-b57b164f750f",
           "request": {
             "method": "POST",
+            "header": [],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -416,15 +491,42 @@
                 "0e175d7e-9940-4e58-a829-855f9e0b5ad8"
               ]
             }
-          }
+          },
+          "response": []
+        },
+        {
+          "name": "updateProductCategory",
+          "id": "ce44f092-4161-4c14-af3a-7858233e0000",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/categories/7e14de3d-bf86-47e1-8aea-078078781c41/products/aed04f59-485f-4a28-bcb6-0cc3a0fec580",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categories",
+                "7e14de3d-bf86-47e1-8aea-078078781c41",
+                "products",
+                "aed04f59-485f-4a28-bcb6-0cc3a0fec580"
+              ]
+            },
+            "description": "Generated from cURL: curl -X PUT http://localhost:8080/categories/cat123/products/prod456\n"
+          },
+          "response": []
         }
-      ]
+      ],
+      "id": "517ccd05-38d0-424c-acaf-017798f4e2e2"
     },
     {
       "name": "Product",
       "item": [
         {
           "name": "updatProduct",
+          "id": "0c996d36-d795-46bf-a220-b425d0cdfbbf",
           "request": {
             "method": "PUT",
             "header": [
@@ -459,10 +561,12 @@
               ]
             },
             "description": "Generated from cURL: curl -i -X PUT http://localhost:8080/products/{productId} \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json\" \\\n  -d '{\n    \"title\": \"Updated Title\",\n    \"price\": 179.99,\n    \"isLive\": false\n  }'"
-          }
+          },
+          "response": []
         },
         {
           "name": "deleteProduct",
+          "id": "31a5b82a-5d02-482b-a783-23952f4a067d",
           "request": {
             "method": "DELETE",
             "header": [
@@ -484,10 +588,12 @@
               ]
             },
             "description": "Generated from cURL: curl -i -X DELETE http://localhost:8080/products/{productId} \\\n  -H \"Accept: application/json\"\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "liveProductWithPaginationAndSorting",
+          "id": "23ae82c8-dad2-485a-9e31-a014e4c9dd6e",
           "request": {
             "method": "GET",
             "header": [
@@ -523,10 +629,12 @@
               ]
             },
             "description": "Generated from cURL: curl -i -X GET \"http://localhost:8080/products/live?page=0&size=10&sort=addedDate,desc\" \\\n  -H \"Accept: application/json\""
-          }
+          },
+          "response": []
         },
         {
           "name": "searchByTitle",
+          "id": "2bf4cdfe-d931-4043-b059-2a105b897f44",
           "request": {
             "method": "GET",
             "header": [
@@ -570,10 +678,12 @@
               ]
             },
             "description": "Generated from cURL: curl -i -X GET \"http://localhost:8080/products/search?subTitle=phone&page=0&size=10&sort=addedDate,desc\" \\\n  -H \"Accept: application/json\"\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "uploadProductImage",
+          "id": "2161ad39-d870-4066-b568-655d646837f9",
           "request": {
             "method": "POST",
             "header": [
@@ -608,10 +718,12 @@
               ]
             },
             "description": "Generated from cURL: curl -v -X POST \"http://localhost:8080/products/image/{productId}\" \\\n  -H \"Accept: application/json\" \\\n  -F \"productImage=@/path/to/local/image.jpg\""
-          }
+          },
+          "response": []
         },
         {
           "name": "serve Prodct image",
+          "id": "fb9ca62b-020e-47d7-95ee-ebb66bc2bbf4",
           "request": {
             "method": "GET",
             "header": [
@@ -634,10 +746,12 @@
               ]
             },
             "description": "Generated from cURL: curl -v \"http://localhost:8080/products/image/{productId}\" \\\n  -H \"Accept: image/jpeg\" \\\n  -o out.jpg"
-          }
+          },
+          "response": []
         },
         {
           "name": "createProductWithCategory",
+          "id": "13bb69c8-9c7b-4553-8a17-aa173395e6c8",
           "request": {
             "method": "POST",
             "header": [
@@ -669,10 +783,12 @@
               ]
             },
             "description": "Generated from cURL: curl -X POST \"http://localhost:8080/categories/cat123/products\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"id\": \"prod123\",\n    \"title\": \"Wireless Mouse\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"quantity\": 100,\n    \"addedDate\": \"2025-12-24T12:00:00Z\",\n    \"coverImage\": \"mouse.jpg\",\n    \"live\": true\n  }'\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "createProduct",
+          "id": "58b5425e-3f3a-4544-b940-d1741b3a3928",
           "request": {
             "method": "POST",
             "header": [
@@ -706,12 +822,15 @@
               ]
             },
             "description": "Generated from cURL: curl -X POST http://localhost:8080/products \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json\" \\\n  -d '{\n    \"productId\": \"prod-123\",\n    \"title\": \"Wireless Mouse\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"discountedPrice\": 24.99,\n    \"quantity\": 100,\n    \"isLive\": true,\n    \"addedDate\": \"2025-12-28T12:34:56\",\n    \"isInstock\": true,\n    \"productImage\": null,\n    \"category\": null\n  }'"
-          }
+          },
+          "response": []
         },
         {
           "name": "getAllProductOFOneCategory",
+          "id": "b24aa839-43d1-424c-91e8-2e524e686a78",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/categories/05dce501-7ab1-4e55-b615-36e47791f065/products?page=0&size=10&sort=price,desc&sort=title,asc",
               "protocol": "http",
@@ -748,15 +867,18 @@
               ]
             },
             "description": "Generated from cURL: curl -X GET \"http://localhost:8080/categories/CATEGORY_ID/products?page=0&size=10&sort=price,desc&sort=title,asc\"\n"
-          }
+          },
+          "response": []
         }
-      ]
+      ],
+      "id": "2da47a16-4fbb-4ec1-b049-1b51ee632586"
     },
     {
       "name": "cart",
       "item": [
         {
           "name": "addItemsToCart",
+          "id": "069995d4-b0ba-4df3-ad29-80143cb36fe6",
           "request": {
             "method": "POST",
             "header": [
@@ -790,12 +912,15 @@
               ]
             },
             "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/carts/user123/items \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"productId\": \"prod456\",\n    \"quantity\": 2\n  }'\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "getUserCart",
+          "id": "0a903441-3cc1-43cd-9cc2-53f427a5b06b",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873",
               "protocol": "http",
@@ -811,12 +936,15 @@
               ]
             },
             "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/carts/user123\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "removeItemFromcart",
+          "id": "e0618cfd-4409-4c20-8b1b-12e794eb1729",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873/items/",
               "protocol": "http",
@@ -834,12 +962,15 @@
               ]
             },
             "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/carts/user123/items/1\n"
-          }
+          },
+          "response": []
         },
         {
           "name": "clearCart",
+          "id": "69ce7f2d-34b1-49f2-9fad-c8cbd004eada",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
               "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873",
               "protocol": "http",
@@ -855,13 +986,28 @@
               ]
             },
             "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/carts/user123\n"
-          }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "67708d03-df09-4087-9a34-21f240123a83",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
         }
-      ]
+      ],
+      "id": "2c7fae2b-c4be-4875-a94e-5fe4ff46ddec"
     }
   ],
   "variable": [
     {
+      "id": "aafcc625-5d45-48b0-b940-f7bbde1d15a5",
       "key": "baseURL",
       "value": "",
       "type": "default"

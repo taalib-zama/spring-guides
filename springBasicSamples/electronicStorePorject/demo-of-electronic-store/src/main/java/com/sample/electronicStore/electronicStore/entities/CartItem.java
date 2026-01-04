@@ -23,7 +23,7 @@ public class CartItem {
     private Integer quantity;
     private Long totalPrice;
 
-    @OneToOne
+    @ManyToOne
     private Product product;
 
     //mapping cart.

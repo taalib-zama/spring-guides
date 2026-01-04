@@ -146,7 +146,8 @@ public class CartServiceImpl implements CartService {
                 .ifPresentOrElse(
                         item -> {
                             item.setQuantity(item.getQuantity() + quantity);
-                            item.setTotalPrice((long) (product.getPrice() * item.getQuantity()));
+                            Double price = product.getDiscountedPrice() != null ? product.getDiscountedPrice() : product.getPrice();
+                            item.setTotalPrice((long) (price * item.getQuantity()));
                         },
                         () -> cart.getCartItems().add(createCartItem(cart, product, quantity))
                 );
@@ -156,11 +157,12 @@ public class CartServiceImpl implements CartService {
     }
 
     private CartItem createCartItem(Cart cart, Product product, Integer quantity) {
+        Double price = product.getDiscountedPrice() != null ? product.getDiscountedPrice() : product.getPrice();
         return CartItem.builder()
-            .cart(cart)
-            .product(product)
-            .quantity(quantity)
-            .totalPrice((long) (product.getPrice() * quantity))
-            .build();
+                .cart(cart)
+                .product(product)
+                .quantity(quantity)
+                .totalPrice((long) (price * quantity))
+                .build();
     }
     }

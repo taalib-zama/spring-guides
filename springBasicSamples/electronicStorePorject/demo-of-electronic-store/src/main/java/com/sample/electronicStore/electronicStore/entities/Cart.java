@@ -30,7 +30,7 @@ public class Cart {
 
     //mapping cart items
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER, orphanRemoval = true)
+            orphanRemoval = true)
     private List<CartItem> cartItems;
 
 
