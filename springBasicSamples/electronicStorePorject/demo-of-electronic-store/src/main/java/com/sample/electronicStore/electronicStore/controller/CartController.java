@@ -2,6 +2,7 @@ package com.sample.electronicStore.electronicStore.controller;
 
 
 import com.sample.electronicStore.electronicStore.dtos.AddItemsToCartRequest;
+import com.sample.electronicStore.electronicStore.dtos.ApiResponse;
 import com.sample.electronicStore.electronicStore.dtos.CartDTO;
 import com.sample.electronicStore.electronicStore.services.CartService;
 import lombok.RequiredArgsConstructor;
@@ -27,16 +28,29 @@ public class CartController {
 
     @DeleteMapping("/{userId}/items/{cartItemId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeItemFromCart(
+    public ResponseEntity<ApiResponse> removeItemFromCart(
             @PathVariable String userId,
             @PathVariable Integer cartItemId) {
         cartService.removeItemFromCart(userId, cartItemId);
+        return ApiResponse.builder()
+                .message("Item removed from cart successfully")
+                .success(true)
+                .status(HttpStatus.OK)
+                .build()
+                .toResponseEntity();
     }
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void clearCart(@PathVariable String userId) {
+    public ResponseEntity<ApiResponse> clearCart(@PathVariable String userId) {
+
         cartService.clearCart(userId);
+        return ApiResponse.builder()
+                .message("Cart cleared successfully")
+                .success(true)
+                .status(HttpStatus.OK)
+                .build()
+                .toResponseEntity();
     }
 
     @GetMapping("/{userId}")

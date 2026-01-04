@@ -1,0 +1,3 @@
+INSERT INTO ElectronicStore.error_code_mapping (active,created_date,id,updated_date,version,created_by,message,updated_by) VALUES
+	 (1,'2026-01-04 18:27:52.726000',1,'2026-01-04 18:27:52.726000',0,'system','Product not found: aab09992-14a1-4491-a8c8-4818ba2e46c8','system'),
+	 (1,'2026-01-04 18:43:05.288000',2,'2026-01-04 18:43:05.288000',0,'system','Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.sample.electronicStore.electronicStore.dtos.UserDTO> com.sample.electronicStore.electronicStore.controller.UserController.createUser(com.sample.electronicStore.el...','system');
