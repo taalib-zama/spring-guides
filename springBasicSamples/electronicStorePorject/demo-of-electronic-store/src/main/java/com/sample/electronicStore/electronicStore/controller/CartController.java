@@ -8,12 +8,14 @@ import com.sample.electronicStore.electronicStore.services.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/carts")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Secured({"ADMIN", "NORMAL"})   //works same as defining preauthorize for multiple roles on each api.
 public class CartController {
 
     private final CartService cartService;

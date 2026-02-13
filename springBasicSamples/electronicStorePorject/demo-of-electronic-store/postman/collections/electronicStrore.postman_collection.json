@@ -16,7 +16,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"Shami Don\",\n    \"email\": \"shami@example.com\",\n    \"password\": \"password12223\",\n    \"gender\": \"MALE\",\n    \"about\": \"Software Eng\",\n    \"imagePath\" : \"abc.jpg\"\n  }",
+              "raw": "{\n            \"name\": \"harsh\",\n            \"email\": \"harsh@gmail.com\",\n            \"gender\": \"MALE\",\n            \"password\": \"test555555\",\n            \"about\": null,\n            \"imagePath\": \"iuavbf.jpg\"\n        }",
               "options": {
                 "raw": {
                   "language": "json"
@@ -131,7 +131,29 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "http://localhost:8080/api/v1/users?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0",
+                  "uuid": "a8d0e6d8-fb9f-4122-bc2a-df67bb363e47"
+                },
+                {
+                  "key": "size",
+                  "value": "10",
+                  "uuid": "ae424977-784c-4e73-92e0-ea8e9d1b1321"
+                }
+              ]
             }
           },
           "response": []
@@ -284,6 +306,44 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "setRoleToUser",
+          "id": "359c97ba-c277-492c-844a-718a16c8fe1c",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users/role?email=john.doe@example.com&roleName=ROLE__NORMAL",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "role"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "john.doe@example.com",
+                  "uuid": "c788ec48-f7af-449d-8d57-42ff8117a095"
+                },
+                {
+                  "key": "roleName",
+                  "value": "ROLE__NORMAL",
+                  "uuid": "55580a9d-ac5f-450f-913a-fb482e29b243"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "47bde6f0-b801-4496-99da-12c49f060547"
@@ -325,6 +385,16 @@
           "name": "getAll",
           "id": "e825fa41-58f9-4f7b-bf97-99488429cc60",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJzaEBnbWFpbC5jb20iLCJpYXQiOjE3NzAyMTcwOTUsImV4cCI6MTc3MDIzNTA5NX0.X28u9IYmTZcskQrqHE_2XcIQjcsQwMIN5kqEp3ML8LKtM3TFnQys8dFw_oAwM6TQyASzSxG7hKphj5Z7zU-F-g",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "body": {
@@ -501,7 +571,7 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/categories/7e14de3d-bf86-47e1-8aea-078078781c41/products/aed04f59-485f-4a28-bcb6-0cc3a0fec580",
+              "raw": "http://localhost:8080/categories/719211b1-528f-4f2b-80e9-e17066f5871c/products/733d17ca-af54-4453-b8dc-0db0f408de14",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -509,9 +579,9 @@
               "port": "8080",
               "path": [
                 "categories",
-                "7e14de3d-bf86-47e1-8aea-078078781c41",
+                "719211b1-528f-4f2b-80e9-e17066f5871c",
                 "products",
-                "aed04f59-485f-4a28-bcb6-0cc3a0fec580"
+                "733d17ca-af54-4453-b8dc-0db0f408de14"
               ]
             },
             "description": "Generated from cURL: curl -X PUT http://localhost:8080/categories/cat123/products/prod456\n"
@@ -790,6 +860,21 @@
           "name": "createProduct",
           "id": "58b5425e-3f3a-4544-b940-d1741b3a3928",
           "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "test555555",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "harsh@gmail.com",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [
               {
@@ -803,7 +888,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\": \"Wireless Mouse 2\",\n    \"description\": \"Ergonomic wireless mouse\",\n    \"price\": 29.99,\n    \"discountedPrice\": 24.99,\n    \"quantity\": 100,\n    \"isLive\": true,\n    \"addedDate\": \"2025-12-28T12:34:56\",\n    \"isInstock\": true,\n    \"productImage\": null,\n    \"category\": null\n  }",
+              "raw": "{\n    \"title\": \"iphone 16\",\n    \"description\": \"Phones\",\n    \"price\": 449.99,\n    \"discountedPrice\": 299.99,\n    \"quantity\": 100,\n    \"isLive\": true,\n    \"addedDate\": \"2025-12-28T12:34:56\",\n    \"isInstock\": true,\n    \"productImage\": null,\n    \"category\": null\n  }",
               "options": {
                 "raw": {
                   "language": "json"
@@ -916,13 +1001,13 @@
           "response": []
         },
         {
-          "name": "getUserCart",
+          "name": "getUserCartByUserID",
           "id": "0a903441-3cc1-43cd-9cc2-53f427a5b06b",
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873",
+              "raw": "http://localhost:8080/api/v1/carts/b6dae65a-cca0-4b07-b35b-9b5cb913f541",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -932,7 +1017,7 @@
                 "api",
                 "v1",
                 "carts",
-                "2108edfb-2036-411f-b6c3-ee6315bf2873"
+                "b6dae65a-cca0-4b07-b35b-9b5cb913f541"
               ]
             },
             "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/carts/user123\n"
@@ -946,7 +1031,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873/items/",
+              "raw": "http://localhost:8080/api/v1/carts/fffd69a3-ac2f-47f0-b97c-af485966c20b/items/2",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -956,9 +1041,9 @@
                 "api",
                 "v1",
                 "carts",
-                "2108edfb-2036-411f-b6c3-ee6315bf2873",
+                "fffd69a3-ac2f-47f0-b97c-af485966c20b",
                 "items",
-                ""
+                "2"
               ]
             },
             "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/carts/user123/items/1\n"
@@ -972,7 +1057,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/v1/carts/2108edfb-2036-411f-b6c3-ee6315bf2873",
+              "raw": "http://localhost:8080/api/v1/carts/fffd69a3-ac2f-47f0-b97c-af485966c20b",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -982,7 +1067,7 @@
                 "api",
                 "v1",
                 "carts",
-                "2108edfb-2036-411f-b6c3-ee6315bf2873"
+                "fffd69a3-ac2f-47f0-b97c-af485966c20b"
               ]
             },
             "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/carts/user123\n"
@@ -1003,6 +1088,140 @@
         }
       ],
       "id": "2c7fae2b-c4be-4875-a94e-5fe4ff46ddec"
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "crateOrder",
+          "id": "4c04344b-c8d6-4bd1-84e4-6577831371ed",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cartId\" : \"9044422f-971a-4160-970c-8c90ef5f271b\",\n    \"userId\" : \"b6dae65a-cca0-4b07-b35b-9b5cb913f541\",\n    \"billingAddress\" : \"H,No 15,Ranchi,Jharkhand,834004, India\",\n    \"billingPhone\" : \"7879679301\",\n    \"billingName\" : \"Taalib\"\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getOrdersOfUser",
+          "id": "85b34a56-2f51-41ab-a242-c45a0e7a791a",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orders/users/b6dae65a-cca0-4b07-b35b-9b5cb913f541",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders",
+                "users",
+                "b6dae65a-cca0-4b07-b35b-9b5cb913f541"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAllORdersInApplication",
+          "id": "e9cb4a6a-0f10-452f-bba9-af606069a140",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "removeOrder",
+          "id": "a895f728-33dc-493f-8087-d747a713f0fb",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orders/f2e974b6-b303-4cfb-b7cc-da77627a0786",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders",
+                "f2e974b6-b303-4cfb-b7cc-da77627a0786"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "b4a5b51f-da64-4a3b-906b-b7ea9a742d08"
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "http://localhost:8080/auth/generate-token",
+          "id": "d73777f0-1a91-4a04-a24d-c98ece6ba177",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\" : \"harsh@gmail.com\",\n    \"password\" : \"test555555\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/auth/generate-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "auth",
+                "generate-token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "17801d1c-911a-41c0-a13e-cd8fe9660913"
     }
   ],
   "variable": [

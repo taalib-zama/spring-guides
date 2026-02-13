@@ -57,7 +57,8 @@ public class PersonTest {
 
         @Test
         @DisplayName("Should throw exception for invalid animal type")
-        void shouldThrowExceptionForInvalidType() {
+        void whenGetAnimal_thenThrowException() {
+//        void shouldThrowExceptionForInvalidType() {
             // Given
             when(animalFactory.getAnimal("INVALID"))
                     .thenThrow(new IllegalArgumentException("Unknown animal type"));
