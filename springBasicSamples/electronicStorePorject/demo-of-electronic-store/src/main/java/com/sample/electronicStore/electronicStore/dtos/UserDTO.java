@@ -2,12 +2,18 @@ package com.sample.electronicStore.electronicStore.dtos;
 
 
 import com.sample.electronicStore.electronicStore.entities.Gender;
+import com.sample.electronicStore.electronicStore.entities.Providers;
 import com.sample.electronicStore.electronicStore.validations.ImageNameValid;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Builder
 @Data
@@ -37,6 +43,12 @@ public class UserDTO {
 
     @ImageNameValid(message = "Invalid Image Name")
     private String imagePath;
+
+
+    private List<RoleDTO> roles;
+
+
+    private Providers provider;
 
 
     // why user DTO ?

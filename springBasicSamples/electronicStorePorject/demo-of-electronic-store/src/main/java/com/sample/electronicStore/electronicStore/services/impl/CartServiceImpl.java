@@ -9,8 +9,8 @@ import com.sample.electronicStore.electronicStore.entities.Product;
 import com.sample.electronicStore.electronicStore.entities.User;
 import com.sample.electronicStore.electronicStore.exceptions.ResourceNotFoundException;
 import com.sample.electronicStore.electronicStore.exceptions.UserNotFoundException;
+import com.sample.electronicStore.electronicStore.repo.CartItemRepository;
 import com.sample.electronicStore.electronicStore.repo.CartRepository;
-import com.sample.electronicStore.electronicStore.repo.CartitemRepository;
 import com.sample.electronicStore.electronicStore.repo.ProductRepository;
 import com.sample.electronicStore.electronicStore.repo.UserRepository;
 import com.sample.electronicStore.electronicStore.services.CartService;
@@ -40,7 +40,7 @@ public class CartServiceImpl implements CartService {
     private ModelMapper modelMapper;
 
     @Autowired
-    private CartitemRepository cartitemRepository;
+    private CartItemRepository cartitemRepository;
 
 
     @Override

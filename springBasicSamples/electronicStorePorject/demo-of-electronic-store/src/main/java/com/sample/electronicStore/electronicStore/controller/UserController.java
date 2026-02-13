@@ -35,6 +35,17 @@ public class UserController {
     @Value("${user.profile.image.path}")
     private String imageUploadPath; //added in config file.
 
+
+    @PutMapping("/role")
+    public ResponseEntity<UserDTO> setRoleToUser(
+            @RequestParam String email,
+            @RequestParam String roleName) {
+        UserDTO updated = userService.setRoleToUser(email, roleName);
+        return ResponseEntity.ok(updated);
+    }
+
+
+    //@PreAuthorize("hasAnyRole('ADMIN', 'NORMAL')")
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
         //validation needs to be put on userDTO  AS ITS THE ONE accepting data FROM REQUEST BODY

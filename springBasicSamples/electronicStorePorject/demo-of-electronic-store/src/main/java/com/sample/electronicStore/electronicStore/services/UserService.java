@@ -1,7 +1,6 @@
 package com.sample.electronicStore.electronicStore.services;
 
 import com.sample.electronicStore.electronicStore.dtos.UserDTO;
-import com.sample.electronicStore.electronicStore.entities.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,6 +25,6 @@ public interface UserService {
 
     List<UserDTO> searchUser(String keyword); //by name
 
-    
+    UserDTO setRoleToUser(String email, String roleName);
 
 }

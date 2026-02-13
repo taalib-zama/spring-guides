@@ -1,7 +1,6 @@
 package com.sample.electronicStore.electronicStore.exceptions;
 
 import com.sample.electronicStore.electronicStore.entities.ErrorCodeMapping;
-import com.sample.electronicStore.electronicStore.entities.User;
 import com.sample.electronicStore.electronicStore.services.ErrorCodeMappingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -43,6 +42,20 @@ public class GlobalExceptionsHandler extends ResponseEntityExceptionHandler {
         );
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
+
+    @ExceptionHandler(EmptyCartException.class)
+    public ResponseEntity<ErrorResponse> handleEmptyCartException(EmptyCartException ex) {
+        log.error("Empty cart exception: ", ex);
+
+        ErrorCodeMapping errorCodeMapping = errorCodeMappingService.getOrCreate(ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(
+                errorCodeMapping.getId().toString(),
+                errorCodeMapping.getMessage(),
+                HttpStatus.BAD_REQUEST
+        );
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
 
