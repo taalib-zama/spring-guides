@@ -85,7 +85,6 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").authenticated()
                         .anyRequest().permitAll()
 
-
         );
 
         //kis type ki security:
