@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/springBasicSamples/electronicStorePorject/frontend-app-electrinic-store/google-login-app" vcs="Git" />
   </component>
 </project>
