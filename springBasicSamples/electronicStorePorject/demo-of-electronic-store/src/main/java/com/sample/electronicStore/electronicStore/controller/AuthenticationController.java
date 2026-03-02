@@ -8,7 +8,7 @@ import com.sample.electronicStore.electronicStore.dtos.*;
 import com.sample.electronicStore.electronicStore.entities.Providers;
 import com.sample.electronicStore.electronicStore.entities.User;
 import com.sample.electronicStore.electronicStore.exceptions.BadApiRequestException;
-import com.sample.electronicStore.electronicStore.exceptions.ResourceNotFoundException;
+import com.sample.electronicStore.electronicStore.exceptions.UserNotFoundException;
 import com.sample.electronicStore.electronicStore.security.JwtHelper;
 import com.sample.electronicStore.electronicStore.services.RefreshTokenService;
 import com.sample.electronicStore.electronicStore.services.UserService;
@@ -133,7 +133,7 @@ public class AuthenticationController {
 
     }
 
-    //handle  login with google
+    //handle  login with google.
 
     //    {idToken}
     @PostMapping("/login-with-google")
@@ -149,7 +149,6 @@ public class AuthenticationController {
 
         if (googleIdToken != null) {
             //token verified
-
             GoogleIdToken.Payload payload = googleIdToken.getPayload();
 
             String email = payload.getEmail();
@@ -191,14 +190,15 @@ public class AuthenticationController {
                 }
 
 
-            } catch (ResourceNotFoundException ex) {
+            } catch (UserNotFoundException ex) {
                 logger.info("This time user created: because this is new user ");
                 user = userService.createUser(userDto);
             }
 
 
-            //
-            this.doAuthenticate(user.getEmail(), userDto.getPassword());
+            //no need to authenticate pass as in oauth  no password is there but we are setting default password for google provider so that we can authenticate and generate token for user.
+            // GOOGLE AUTEHTICATION IS DONE ABOVE ALREADY
+            //this.doAuthenticate(user.getEmail(), userDto.getPassword());
 
 
             User user1 = modelMapper.map(user, User.class);

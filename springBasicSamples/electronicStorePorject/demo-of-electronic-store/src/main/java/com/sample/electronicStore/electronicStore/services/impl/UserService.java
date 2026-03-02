@@ -77,11 +77,24 @@ public class UserService implements com.sample.electronicStore.electronicStore.s
     @Override
     public UserDTO updateUser(UserDTO userDTO, String userId) {
         User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found", HttpStatus.NOT_FOUND));
-        user.setName(userDTO.getName());
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        user.setAbout(userDTO.getAbout());
-        user.setGender(userDTO.getGender());
-        user.setImagePath(userDTO.getImagePath());
+        if (userDTO.getName() != null) {
+            user.setName(userDTO.getName());
+        }
+        if (userDTO.getPassword() != null) {
+            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        }
+        if (userDTO.getAbout() != null) {
+            user.setAbout(userDTO.getAbout());
+        }
+        if (userDTO.getGender() != null) {
+            user.setGender(userDTO.getGender());
+        }
+        if (userDTO.getImagePath() != null) {
+            user.setImagePath(userDTO.getImagePath());
+        }
+        if (userDTO.getProvider() != null) {
+            user.setProvider(userDTO.getProvider());
+        }
         userRepository.save(user);
         return userMapper.toDTO(user);
     }

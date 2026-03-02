@@ -50,6 +50,11 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Order> orders = new java.util.ArrayList<>();
 
+    @Column(name = "provider")
+    @Enumerated(EnumType.STRING)
+    private Providers provider = Providers.LOCAL; // Default value for existing users
+
+
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();

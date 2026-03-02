@@ -37,6 +37,16 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
 
+        // Skip JWT processing for non-API requests
+        String requestPath = request.getRequestURI();
+        if (requestPath.startsWith("/swagger-ui") ||
+                requestPath.startsWith("/v3/api-docs") ||
+                requestPath.startsWith("/.well-known") ||
+                requestPath.startsWith("/favicon.ico")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         // we will follow functional style of coding--> lambda
 
 

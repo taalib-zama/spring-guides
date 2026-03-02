@@ -1,4 +1,4 @@
-package com.sample.electronicStore.electronicStore.services;
+package com.sample.electronicStore.electronicStore.services.impl;
 
 import com.sample.electronicStore.electronicStore.dtos.RefreshTokenDto;
 import com.sample.electronicStore.electronicStore.dtos.UserDTO;
@@ -7,6 +7,7 @@ import com.sample.electronicStore.electronicStore.entities.User;
 import com.sample.electronicStore.electronicStore.exceptions.ResourceNotFoundException;
 import com.sample.electronicStore.electronicStore.repo.RefreshTokenRepository;
 import com.sample.electronicStore.electronicStore.repo.UserRepository;
+import com.sample.electronicStore.electronicStore.services.RefreshTokenService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

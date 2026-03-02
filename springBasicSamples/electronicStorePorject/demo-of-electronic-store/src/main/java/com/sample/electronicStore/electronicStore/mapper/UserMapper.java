@@ -12,9 +12,11 @@ import java.util.List;
 public interface UserMapper {
 
     @Mapping(source = "roles", target = "roles")
+    @Mapping(source = "provider", target = "provider")
     UserDTO toDTO(User user);
 
     @Mapping(source = "roles", target = "roles")
+    @Mapping(source = "provider", target = "provider")
     User toEntity(UserDTO userDTO);
 
     List<UserDTO> toDTOList(List<User> users);
