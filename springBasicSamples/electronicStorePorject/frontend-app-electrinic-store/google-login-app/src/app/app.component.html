@@ -1,3 +1,18 @@
-<div class="container">
-<h1>Welcome to login app</h1>  
+<div
+  class="container flex justify-center flex-col space-y-4 items-center h-screen"
+>
+  @if(user) {
+
+  <img [src]="user.user.imageName" class="rounded-full" alt="" />
+  <h1 class="text-4xl">Username: {{ user.user.name }}</h1>
+  <h1 class="text-4xl">Email: {{ user.user.email }}</h1>
+
+  } @else {
+  <h1 class="text-3xl font-bold">Welcome to Login with Google App</h1>
+  <asl-google-signin-button
+    type="standard"
+    size="large"
+    text="signin_with"
+  ></asl-google-signin-button>
+  }
 </div>

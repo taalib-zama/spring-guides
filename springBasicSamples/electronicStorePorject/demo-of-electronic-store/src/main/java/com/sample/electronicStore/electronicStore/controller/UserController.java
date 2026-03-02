@@ -4,6 +4,7 @@ import com.sample.electronicStore.electronicStore.dtos.ImageResponse;
 import com.sample.electronicStore.electronicStore.dtos.UserDTO;
 import com.sample.electronicStore.electronicStore.services.FileService;
 import com.sample.electronicStore.electronicStore.services.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@Tag(name = "user management related APIs", description = "APIs for managing users - create, update, delete, get, search, upload image")
 public class UserController {
 
     private final UserService userService;
@@ -46,6 +47,7 @@ public class UserController {
 
 
     //@PreAuthorize("hasAnyRole('ADMIN', 'NORMAL')")
+
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
         //validation needs to be put on userDTO  AS ITS THE ONE accepting data FROM REQUEST BODY
@@ -55,7 +57,7 @@ public class UserController {
 
     @PutMapping("/{userId}")
     public ResponseEntity<UserDTO> updateUser(
-            @Valid @RequestBody UserDTO userDTO,
+            @RequestBody UserDTO userDTO,
             @PathVariable String userId) {
         UserDTO updated = userService.updateUser(userDTO, userId);
         return ResponseEntity.ok(updated);

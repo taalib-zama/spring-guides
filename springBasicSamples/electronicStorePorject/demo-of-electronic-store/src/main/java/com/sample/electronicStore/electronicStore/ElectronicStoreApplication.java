@@ -10,12 +10,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
 import java.util.UUID;
 
 @SpringBootApplication
-
+@EnableWebMvc
 public class ElectronicStoreApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
@@ -58,38 +59,30 @@ public class ElectronicStoreApplication implements CommandLineRunner {
         //Ensuring the application has required data to function properly on first startup
         //Creating a default admin account for initial system access
         Role roleAdmin = roleRepository.findByName("ROLE_" + AppConstants.ROLE_ADMIN).orElse(null);
-
         if (roleAdmin == null) {
-
             Role role1 = new Role();
             role1.setRoleId(UUID.randomUUID().toString());
             role1.setName("ROLE_" + AppConstants.ROLE_ADMIN);
-            roleRepository.save(role1);
+            roleAdmin = roleRepository.save(role1);  // Assign saved role
         }
 
-        Role roleNormal = roleRepository.findByName("ROLE__" + AppConstants.ROLE_NORMAL).orElse(null);
-
+        Role roleNormal = roleRepository.findByName("ROLE_" + AppConstants.ROLE_NORMAL).orElse(null);  // Fix typo
         if (roleNormal == null) {
-
-
             Role role2 = new Role();
             role2.setRoleId(UUID.randomUUID().toString());
-            role2.setName("ROLE__" + AppConstants.ROLE_NORMAL);
-            roleRepository.save(role2);
+            role2.setName("ROLE_" + AppConstants.ROLE_NORMAL);  // Fix typo
+            roleNormal = roleRepository.save(role2);
         }
 
-        // ek admin user banaunga:
         User user = userRepository.findByEmail("admin@gmail.com").orElse(null);
         if (user == null) {
             user = new User();
             user.setName("admin");
             user.setEmail("admin@gmail.com");
             user.setPassword(passwordEncoder.encode("admin123"));
-            user.setRoles(List.of(roleAdmin));
+            user.setRoles(List.of(roleAdmin));  // Now roleAdmin is not null
             user.setUserId(UUID.randomUUID().toString());
-
             userRepository.save(user);
-
         }
     }
 }
