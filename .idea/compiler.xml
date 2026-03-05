@@ -52,7 +52,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
-        <module name="demo-of-electronic-store" />
+        <module name="electronic-store-backend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -68,7 +68,7 @@
       <module name="demo-core-concepts" options="-parameters" />
       <module name="demo-for-basic-auth" options="-parameters" />
       <module name="demo-from-app-architecture" options="-parameters" />
-      <module name="demo-of-electronic-store" options="-parameters" />
+      <module name="electronic-store-backend" options="-parameters" />
       <module name="learn-spring-orm" options="-parameters" />
       <module name="spring-data-jpa-demo" options="-parameters" />
       <module name="spring-transaction-sample" options="-parameters" />

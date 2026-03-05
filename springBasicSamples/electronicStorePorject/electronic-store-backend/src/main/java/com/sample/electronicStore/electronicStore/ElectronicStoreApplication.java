@@ -79,7 +79,7 @@ public class ElectronicStoreApplication implements CommandLineRunner {
             user = new User();
             user.setName("admin");
             user.setEmail("admin@gmail.com");
-            user.setPassword(passwordEncoder.encode("admin123"));
+                user.setPassword(passwordEncoder.encode("admin123"));
             user.setRoles(List.of(roleAdmin));  // Now roleAdmin is not null
             user.setUserId(UUID.randomUUID().toString());
             userRepository.save(user);
