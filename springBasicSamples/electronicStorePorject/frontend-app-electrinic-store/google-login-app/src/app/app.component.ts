@@ -1,49 +1,33 @@
-import { GoogleSigninButtonModule, SocialAuthService, SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthComponent } from './components/auth/auth.component';
+import { CommonModule } from '@angular/common';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,SocialLoginModule,GoogleSigninButtonModule],
+  imports: [RouterOutlet, AuthComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'google-login-app';
+  user: any = null;
 
-  user:any
-  googleLoginUrl="http://localhost:9090/auth/login-with-google"
+  constructor(private socialAuthService: SocialAuthService) {}
 
-
-  constructor(private authService:SocialAuthService,private http:HttpClient) {
-    this.authService.authState.subscribe((authData)=>{
-      console.log("User logged in");      
-      console.log(authData);
-
-      //id token process hone ke lie backend :
-
-      
-      if(authData){
-
-
-      //to send the request to backend for processing
-
-      //HttpClient service
-
-      this.http.post(this.googleLoginUrl,{idToken:authData.idToken}).subscribe((res)=>{
-        console.log("response from backend");
-        console.log(res);
-        this.user=res
-      }
-    )
-
-
-      }
-
-
-    })
+  ngOnInit() {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+    }
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.socialAuthService.signOut();
+    this.user = null;
+  }
 }
