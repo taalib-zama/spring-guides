@@ -636,15 +636,5 @@ Contributions are welcome! Please:
 
 ---
 
-## 📞 Support
-
-For questions or issues:
-- Check the Swagger documentation
-- Review the test data and examples
-- Open an issue in the repository
-
----
-
-**Built with ❤️ using Spring Boot**
-
-*Last Updated: 2025*
+ ## Final application login page : 
+![img_6.png](img_6.png)
