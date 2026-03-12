@@ -19,7 +19,7 @@ CMD ["java","-jar", "jarFileName.jar" ]
 EXPOSE 9898
 -----------------------------------------------------------------------------
 
- ## dockerizing the app : Steps to follow :
+ ## Dockerizing the app : Steps to follow :
 
 1. Add all dependency to docker-compose yaml
 2. create dockerfile.
@@ -35,7 +35,7 @@ Also the bundled version with DB the imageName-> taalib1705/electronicstorefull1
 
 ========================================================================================
 
-## deployiong to azure as Azure Vm ~ S3:
+## Deployiong to Azure VM ~ S3:
 
 1. create a new resource group -> create a new web app -> give image name from dockerhub ->  create
 
@@ -77,7 +77,7 @@ taalibzama@Taalibs-Mac-mini demo-of-electronic-store % docker buildx build --pla
 - This completes the deployment of our application on azure VM using docker and we can access it using public IP and port 8080 and also the swagger ui is working fine on azure VM.
 ===========================================================================
 
-# further check our generate token api is working fine with default admin user :
+# further check if our generate token api is working fine with default admin user :
 {
 "email" : "admin@gmail.com",
 "password" : "admin123"
